@@ -14,6 +14,25 @@ namespace Quest
             Console.WriteLine("Hello Adventurer!");
             Console.Write("What is your name?: ");
             string? nameString = Console.ReadLine();
+            // In Program.cs create a new instance of the Robe class and set its properties.
+            Robe myRobe = new Robe
+            {
+                Colors = new List<string> { "Red", "Green", "Blue" },
+                Length = 60
+            };
+
+            // "Awesomeness" is like our Adventurer's current "score"
+            // A higher Awesomeness is better
+
+            // Here we set some reasonable min and max values.
+            //  If an Adventurer has an Awesomeness greater than the max, they are truly awesome
+            //  If an Adventurer has an Awesomeness less than the min, they are terrible
+            int minAwesomeness = 0;
+            int maxAwesomeness = 100;
+
+            // Make a new "Adventurer" object using the "Adventurer" class
+            Adventurer theAdventurer = new Adventurer(nameString, myRobe);
+            Console.Write($"You are {theAdventurer.Name} and your robe is {theAdventurer.GetDescription()}");
             bool play = true;
             
             {// Create a few challenges for our Adventurer's quest
@@ -40,17 +59,6 @@ namespace Quest
                 4, 20
             );
 
-            // "Awesomeness" is like our Adventurer's current "score"
-            // A higher Awesomeness is better
-
-            // Here we set some reasonable min and max values.
-            //  If an Adventurer has an Awesomeness greater than the max, they are truly awesome
-            //  If an Adventurer has an Awesomeness less than the min, they are terrible
-            int minAwesomeness = 0;
-            int maxAwesomeness = 100;
-
-            // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer(nameString);
 
             // A list of challenges for the Adventurer to complete
             // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
