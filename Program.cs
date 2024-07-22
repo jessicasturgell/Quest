@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Formats.Asn1;
+using System.Runtime.InteropServices.Marshalling;
 
 // Every class in the program is defined within the "Quest" namespace
 // Classes within the same namespace refer to one another without a "using" statement
@@ -12,7 +14,9 @@ namespace Quest
             Console.WriteLine("Hello Adventurer!");
             Console.Write("What is your name?: ");
             string? nameString = Console.ReadLine();
-            // Create a few challenges for our Adventurer's quest
+            bool play = true;
+            
+            {// Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
             //   the text of the challenge
             //   a correct answer
@@ -79,6 +83,28 @@ namespace Quest
             {
                 Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
             }
+
+            PlayAgain();
+            
+            void PlayAgain ()
+            {Console.Write("Play again? (y/n): ");
+            string answer = Console.ReadLine().ToLower();
+
+            if (answer == "n")
+            {
+                play = false;
+            }
+            else if (answer == "y")
+            {
+                play = true;
+            }
+            else
+            {
+                Console.WriteLine("Invalid Input!");
+                PlayAgain();
+            }}
+
+            } while (play);
         }
     }
 }
