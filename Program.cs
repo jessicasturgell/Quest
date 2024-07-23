@@ -17,8 +17,13 @@ namespace Quest
             // In Program.cs create a new instance of the Robe class and set its properties.
             Robe myRobe = new Robe
             {
-                Colors = new List<string> { "Red", "Green", "Blue" },
+                Colors = new List<string> { "red", "gold" },
                 Length = 60
+            };
+
+            Hat myHat = new Hat
+            {
+                ShininessLevel = 9
             };
 
             // "Awesomeness" is like our Adventurer's current "score"
@@ -31,8 +36,8 @@ namespace Quest
             int maxAwesomeness = 100;
 
             // Make a new "Adventurer" object using the "Adventurer" class
-            Adventurer theAdventurer = new Adventurer(nameString, myRobe);
-            Console.Write($"You are {theAdventurer.Name} and your robe is {theAdventurer.GetDescription()}");
+            Adventurer theAdventurer = new Adventurer(nameString, myRobe, myHat);
+            Console.WriteLine($"You are {theAdventurer.Name}. {theAdventurer.GetDescription()}");
             bool play = true;
             
             {// Create a few challenges for our Adventurer's quest
